@@ -26,6 +26,9 @@
 # Visual Studio cache directory
 .vs/
 
+# Coderush setting directory
+.cr/
+
 # Gradle cache directory
 .gradle/
 
