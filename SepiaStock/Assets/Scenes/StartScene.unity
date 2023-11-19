@@ -443,9 +443,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab64d85aa0e31046bc7ae1f96191987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _photoSelect: {fileID: 0}
-  _createAlbum: {fileID: 0}
-  _config: {fileID: 0}
+  _photoSelect: {fileID: 584292255}
+  _createAlbum: {fileID: 331547441}
+  _config: {fileID: 1479601270}
 --- !u!1 &584292253
 GameObject:
   m_ObjectHideFlags: 0
