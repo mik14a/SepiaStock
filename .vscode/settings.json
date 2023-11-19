@@ -1,3 +1,17 @@
 {
-    "dotnet.preferCSharpExtension": true
+    "dotnet.preferCSharpExtension": true,
+    "cSpell.words": [
+        "Atrous",
+        "backface",
+        "Denoiser",
+        "Interactable",
+        "Lightmap",
+        "Lightmapping",
+        "Lightmaps",
+        "MonoBehaviour",
+        "MSAA",
+        "Occluder",
+        "Raycast",
+        "Skybox",
+    ]
 }
