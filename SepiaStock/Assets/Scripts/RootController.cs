@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RootCommandManager : MonoBehaviour
+class RootController : MonoBehaviour
 {
     [SerializeField]
     Button _photoSelect;
