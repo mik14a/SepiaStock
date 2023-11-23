@@ -2,7 +2,7 @@
 
 using UnityEngine.SceneManagement;
 
-internal class CreateAlbumCommand : ICommand
+class CreateAlbumCommand : ICommand
 {
     public Task<bool> Execute()
     {

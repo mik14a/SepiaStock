@@ -1,13 +1,31 @@
 using System.Collections.Generic;
 
+/// <summary>
+/// コマンド管理クラス
+/// </summary>
 class CommandManager
 {
+    /// <summary>
+    /// Undoが可能かどうかを取得します
+    /// </summary>
+    public bool CanUndo => 0 < _undoStack.Count;
+    /// <summary>
+    /// Redoが可能かどうかを取得します
+    /// </summary>
+    public bool CanRedo => 0 < _redoStack.Count;
+
+    /// <summary>
+    /// コマンドをプッシュします
+    /// </summary>
     public void Push(ICommand command)
     {
         _commands.Push(command);
         _redoStack.Clear();
     }
 
+    /// <summary>
+    /// コマンドを実行します
+    /// </summary>
     public async void Execute()
     {
         while (0 < _commands.Count) {
@@ -18,6 +36,9 @@ class CommandManager
         }
     }
 
+    /// <summary>
+    /// Undoを実行します
+    /// </summary>
     public async void Undo()
     {
         if (_undoStack.Count > 0) {
@@ -28,6 +49,9 @@ class CommandManager
         }
     }
 
+    /// <summary>
+    /// Redoを実行します
+    /// </summary>
     public async void Redo()
     {
         if (_redoStack.Count > 0) {
