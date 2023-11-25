@@ -6,24 +6,18 @@ using UnityEngine.UI;
 /// </summary>
 class RootController : MonoBehaviour
 {
+    /// <summary>写真選択ボタン</summary>
     [SerializeField]
-    /// <summary>
-    /// 写真選択ボタン
-    /// </summary>
     Button _photoSelect;
+    /// <summary>アルバム作成ボタン</summary>
     [SerializeField]
-    /// <summary>
-    /// アルバム作成ボタン
-    /// </summary>
     Button _createAlbum;
+    /// <summary>設定ボタン</summary>
     [SerializeField]
-    /// <summary>
-    /// 設定ボタン
-    /// </summary>
     Button _config;
 
     /// <summary>
-    /// Awakeメソッド
+    /// Awake メソッド
     /// </summary>
     void Awake()
     {
@@ -33,7 +27,7 @@ class RootController : MonoBehaviour
     }
 
     /// <summary>
-    /// Updateメソッド
+    /// Update メソッド
     /// </summary>
     void Update()
     {

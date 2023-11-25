@@ -6,7 +6,7 @@ class ConfigCommand : ICommand
 {
     public Task<bool> Execute()
     {
-        SceneManager.LoadScene("ConfigScene");
+        SceneDirector.PushScene("ConfigScene");
         return Task.FromResult(true);
     }
 

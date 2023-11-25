@@ -12,5 +12,4 @@ class CreateAlbumCommand : ICommand
 
     public Task<bool> Undo() => throw new System.NotImplementedException();
     public Task<bool> Redo() => throw new System.NotImplementedException();
-
 }
