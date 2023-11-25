@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PhotoSelectController : MonoBehaviour
+public class CreateAlbumController : MonoBehaviour
 {
     [SerializeField]
     Button _backButton;

@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 class ConfigCommand : ICommand
 {

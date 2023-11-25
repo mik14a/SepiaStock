@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 
 using UnityEngine.SceneManagement;
 
@@ -6,7 +6,7 @@ class CreateAlbumCommand : ICommand
 {
     public Task<bool> Execute()
     {
-        SceneManager.LoadScene("CreateAlbumScene");
+        SceneDirector.PushScene("CreateAlbumScene");
         return Task.FromResult(true);
     }
 
