@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 236482896}
   - component: {fileID: 236482895}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: PhotoFolderInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1313,7 +1313,7 @@ GameObject:
   - component: {fileID: 915851213}
   - component: {fileID: 915851215}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CancelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1500,7 +1500,7 @@ GameObject:
   - component: {fileID: 1325128997}
   - component: {fileID: 1325128996}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: AlbumFolderInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1664,8 +1664,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2009548398}
-  - {fileID: 306698399}
   - {fileID: 31607659}
+  - {fileID: 306698399}
   - {fileID: 1258593812}
   m_Father: {fileID: 696889994}
   m_RootOrder: -1
@@ -1794,7 +1794,7 @@ GameObject:
   - component: {fileID: 1628403105}
   - component: {fileID: 1628403104}
   m_Layer: 5
-  m_Name: Button
+  m_Name: OkButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1996,7 +1996,7 @@ GameObject:
   - component: {fileID: 1802090338}
   - component: {fileID: 1802090337}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: FinalFolderInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2384,11 +2384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0069dc95aabe764ba95d914938461c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _photoFolderPath: {fileID: 628727872}
-  _albumFolderPath: {fileID: 662405344}
-  _finalFolderPath: {fileID: 803366479}
-  _okButton: {fileID: 915851215}
-  _cancelButton: {fileID: 1628403104}
+  _photoFolderPath: {fileID: 236482895}
+  _albumFolderPath: {fileID: 1802090337}
+  _finalFolderPath: {fileID: 1325128996}
+  _okButton: {fileID: 1628403104}
+  _cancelButton: {fileID: 915851215}
 --- !u!4 &2017968157
 Transform:
   m_ObjectHideFlags: 0
