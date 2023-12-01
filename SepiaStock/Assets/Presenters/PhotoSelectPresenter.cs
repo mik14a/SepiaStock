@@ -1,15 +1,18 @@
 using System;
 
+using SepiaStock.Unity.ObservableModels;
 using SepiaStock.Unity.Presenters.Interfaces;
 using SepiaStock.Views;
 
+using UniRx;
+
 namespace SepiaStock.Unity.Presenters
 {
-    public class PhotoSelectPresenter : IScenePresenter
+    public class PhotoSelectPresenter : IScenePresenter, IDisposable
     {
-        public static PhotoSelectPresenter CreateInstance(IPhotoSelectView view)
+        public static PhotoSelectPresenter CreateInstance(PhotoSelectScene model, IPhotoSelectView view)
         {
-            return new PhotoSelectPresenter(view);
+            return new PhotoSelectPresenter(model, view);
         }
 
         public event Action OnBack;
@@ -17,12 +20,22 @@ namespace SepiaStock.Unity.Presenters
 
         public void Initialize()
         {
+            _model.Photos.ObserveAdd().Subscribe(e => _view.AddPhoto(e.Value)).AddTo(_disposables);
         }
 
-        PhotoSelectPresenter(IPhotoSelectView view)
+        public void Dispose()
         {
+            _disposables.Dispose();
+        }
+
+        PhotoSelectPresenter(PhotoSelectScene model, IPhotoSelectView view)
+        {
+            _model = model;
             _view = view;
         }
-        private IPhotoSelectView _view;
+
+        readonly PhotoSelectScene _model;
+        readonly IPhotoSelectView _view;
+        readonly CompositeDisposable _disposables = new();
     }
 }
