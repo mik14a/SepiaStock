@@ -1,29 +1,32 @@
 using System;
 
-/// <summary>
-/// 設定クラス
-/// </summary>
-[Serializable]
-public class Config
+namespace SepiaStock.Models
 {
-    public static readonly Config Default = new() {
-        PhotoFolderPath = string.Empty,
-        AlbumFolderPath = string.Empty,
-        FinalFolderPath = string.Empty
-    };
-
     /// <summary>
-    /// 写真のフォルダパス
+    /// 設定クラス
     /// </summary>
-    public string PhotoFolderPath;
+    [Serializable]
+    public class Config
+    {
+        public static readonly Config Default = new() {
+            PhotoFolderPath = string.Empty,
+            AlbumFolderPath = string.Empty,
+            FinalFolderPath = string.Empty
+        };
 
-    /// <summary>
-    /// アルバムのフォルダパス
-    /// </summary>
-    public string AlbumFolderPath;
+        /// <summary>
+        /// 写真のフォルダパス
+        /// </summary>
+        public string PhotoFolderPath;
 
-    /// <summary>
-    /// 最終的なフォルダパス
-    /// </summary>
-    public string FinalFolderPath;
+        /// <summary>
+        /// アルバムのフォルダパス
+        /// </summary>
+        public string AlbumFolderPath;
+
+        /// <summary>
+        /// 最終的なフォルダパス
+        /// </summary>
+        public string FinalFolderPath;
+    }
 }

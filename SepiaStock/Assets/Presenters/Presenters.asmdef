@@ -1,0 +1,18 @@
+{
+    "name": "SepiaStock.Unity.Presenters",
+    "rootNamespace": "SepiaStock.Unity.Presenters",
+    "references": [
+        "GUID:503da2660d9da3c4bbd76dc65936a32a",
+        "GUID:163c17a4295b682409099eb2506d9a2c",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

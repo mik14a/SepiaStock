@@ -1062,8 +1062,9 @@ GameObject:
   - component: {fileID: 696889994}
   - component: {fileID: 696889996}
   - component: {fileID: 696889995}
+  - component: {fileID: 696889997}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: ConfigPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1128,6 +1129,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696889993}
   m_CullTransparentMesh: 1
+--- !u!114 &696889997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696889993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63eee3c5f0a11384696f7d8d6b95df8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _photoFolderPath: {fileID: 236482895}
+  _albumFolderPath: {fileID: 1325128996}
+  _finalFolderPath: {fileID: 1802090337}
+  _okButton: {fileID: 1628403104}
+  _cancelButton: {fileID: 915851215}
 --- !u!1 &702126219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2384,11 +2402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0069dc95aabe764ba95d914938461c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _photoFolderPath: {fileID: 236482895}
-  _albumFolderPath: {fileID: 1802090337}
-  _finalFolderPath: {fileID: 1325128996}
-  _okButton: {fileID: 1628403104}
-  _cancelButton: {fileID: 915851215}
 --- !u!4 &2017968157
 Transform:
   m_ObjectHideFlags: 0
