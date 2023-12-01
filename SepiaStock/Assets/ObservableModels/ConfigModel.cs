@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 using SepiaStock.Models;
@@ -31,6 +32,21 @@ namespace SepiaStock.Unity.ObservableModels
             var configPath = Path.Combine(Application.persistentDataPath, "Config.json");
             var json = JsonUtility.ToJson(_config);
             File.WriteAllText(configPath, json);
+        }
+
+        public void ChangePhotoFolderPath(string path)
+        {
+            _photoFolderPath.Value = path;
+        }
+
+        public void ChangeAlbumFolderPath(string path)
+        {
+            _albumFolderPath.Value = path;
+        }
+
+        public void ChangeFinalFolderPath(string path)
+        {
+            _finalFolderPath.Value = path;
         }
 
         ConfigModel(Config config)
