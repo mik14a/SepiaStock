@@ -1,6 +1,5 @@
 using SepiaStock.Unity.ObservableModels;
 using SepiaStock.Unity.Presenters;
-using SepiaStock.Unity.Presenters.Interfaces;
 using SepiaStock.Views;
 
 using UnityEngine;
@@ -18,6 +17,11 @@ class ConfigController : MonoBehaviour
         _presenter.OnBack += Back;
     }
 
+    void Start()
+    {
+        _presenter.Initialize();
+    }
+
     void Update()
     {
         _commandManager.Execute();
@@ -33,5 +37,5 @@ class ConfigController : MonoBehaviour
 
     ConfigModel _model;
     IConfigView _view;
-    IScenePresenter _presenter;
+    ConfigPresenter _presenter;
 }
