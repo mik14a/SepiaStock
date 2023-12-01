@@ -37,5 +37,10 @@
         "unitywebrequesttexture",
         "unitywebrequestwww",
         "visualscripting"
-    ]
+    ],
+    "files.exclude": {
+        "**/.cr": true,
+        "**/.vs": true,
+        "**/*.meta": true
+    }
 }
