@@ -433,7 +433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f757fd26a0fdd4fba0f27c32ddfba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backButton: {fileID: 3811445164508702888}
 --- !u!4 &2062981974
 Transform:
   m_ObjectHideFlags: 0
@@ -585,6 +584,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6921174530703523313, guid: 7a66762efbf73c94ca3bae73f8255b02, type: 3}
+      propertyPath: _backButton
+      value: 
+      objectReference: {fileID: 3811445164508702888}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
