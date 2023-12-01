@@ -27,7 +27,7 @@ public class ConfigView : MonoBehaviour, IConfigView
 
     void Awake()
     {
-        _okButton?.onClick.AddListener(() => OnOk?.Invoke());
-        _cancelButton?.onClick.AddListener(() => OnCancel?.Invoke());
+        _okButton.onClick.AddListener(() => OnOk?.Invoke());
+        _cancelButton.onClick.AddListener(() => OnCancel?.Invoke());
     }
 }
