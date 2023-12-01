@@ -41,6 +41,14 @@
     "files.exclude": {
         "**/.cr": true,
         "**/.vs": true,
-        "**/*.meta": true
+        "**/*.csproj": true,
+        "**/*.meta": true,
+        "**/*.sln": true,
+        "**/Build": true,
+        "**/Library": true,
+        "**/Logs": true,
+        "**/obj": true,
+        "**/Temp": true,
+        "**/UserSettings": true
     }
 }
