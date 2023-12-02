@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _photoGrid: {fileID: 1254288709}
+  _photoPrefab: {fileID: 2381678085834163558, guid: eb579cb762e258748ab02cdfbf182381, type: 3}
 --- !u!1 &907748188
 GameObject:
   m_ObjectHideFlags: 0

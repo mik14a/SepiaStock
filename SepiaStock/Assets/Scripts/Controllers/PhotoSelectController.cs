@@ -5,7 +5,6 @@ using SepiaStock.Unity.ObservableModels;
 using SepiaStock.Unity.Presenters;
 
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class PhotoSelectController : MonoBehaviour
 {
