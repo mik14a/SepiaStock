@@ -16,7 +16,7 @@ namespace SepiaStock.Unity.Presenters
         }
 
         public event Action OnBack;
-        public event Func<string> OnNext;
+        public event Action<string> OnNext;
 
         public void Initialize()
         {

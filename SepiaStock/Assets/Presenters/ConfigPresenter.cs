@@ -11,7 +11,7 @@ namespace SepiaStock.Unity.Presenters
     public class ConfigPresenter : IScenePresenter, IDisposable
     {
         public event Action OnBack;
-        public event Func<string> OnNext;
+        public event Action<string> OnNext;
 
         public static ConfigPresenter CreateInstance(ConfigModel model, IConfigView view)
         {

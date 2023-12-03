@@ -36,7 +36,7 @@ public class PhotoSelectController : MonoBehaviour
         _commandManager.Push(new BackCommand());
     }
 
-    string Next()
+    void Next(string scene)
     {
         throw new NotImplementedException();
     }
