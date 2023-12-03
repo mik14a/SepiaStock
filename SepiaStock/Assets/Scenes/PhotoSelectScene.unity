@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 792444760}
   - component: {fileID: 792444759}
   - component: {fileID: 792444763}
+  - component: {fileID: 792444764}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -246,6 +247,18 @@ MonoBehaviour:
   _photoGrid: {fileID: 1254288709}
   _photoPrefab: {fileID: 6821596813895334704, guid: 7d995995820de65449b41f6b7b2b343d, type: 3}
   _photoScale: {fileID: 2018245162}
+--- !u!114 &792444764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792444758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30483e27b73d8b646a73080b155acfeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &907748188
 GameObject:
   m_ObjectHideFlags: 0
