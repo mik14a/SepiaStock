@@ -1,6 +1,9 @@
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 
+using SepiaStock.Unity.ObservableModels;
+using SepiaStock.Unity.Presenters;
 using SepiaStock.Views;
 
 using UnityEngine;
@@ -15,15 +18,16 @@ public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
 
     public event Action OnBack;
 
-    public void AddPhoto(string path)
+    public void AddPhoto(PhotoModel photo)
     {
-        if (File.Exists(path)) {
-            var data = File.ReadAllBytes(path);
-            var texture = new Texture2D(32, 32);
-            texture.LoadImage(data);
-            var newPhoto = Instantiate(_photoPrefab, _photoGrid.transform, false);
-            var view = newPhoto.GetComponent<PhotoView>();
-            view.Photo = texture;
+        var instance = Instantiate(_photoPrefab, _photoGrid.transform, false);
+        var view = instance.GetComponent<PhotoView>();
+        var presenter = PhotoPresenter.CreateInstance(photo, view);
+        presenter.Initialize();
+        _photos.Add(presenter);
+    }
         }
     }
+
+    readonly List<PhotoPresenter> _photos = new();
 }

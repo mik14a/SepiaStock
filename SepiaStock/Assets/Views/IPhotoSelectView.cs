@@ -1,7 +1,9 @@
+using SepiaStock.Unity.ObservableModels;
+
 namespace SepiaStock.Views
 {
     public interface IPhotoSelectView
     {
-        void AddPhoto(string path);
+        void AddPhoto(PhotoModel photo);
     }
 }

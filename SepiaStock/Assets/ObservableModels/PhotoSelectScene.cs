@@ -16,14 +16,14 @@ namespace SepiaStock.Unity.ObservableModels
             return new PhotoSelectScene();
         }
 
-        public IReadOnlyReactiveCollection<string> Photos => _photos;
+        public IReadOnlyReactiveCollection<PhotoModel> Photos => _photos;
 
         public IEnumerator Load()
         {
             var files = Directory.EnumerateFiles(_config.PhotoFolderPath);
             foreach (var file in files) {
                 if (Path.GetExtension(file) is ".png" or ".jpg") {
-                    _photos.Add(file);
+                    _photos.Add(PhotoModel.CreateInstance(file));
                     yield return null;
                 }
             }
@@ -37,6 +37,6 @@ namespace SepiaStock.Unity.ObservableModels
                 : Config.Default;
         }
         readonly Config _config;
-        readonly ReactiveCollection<string> _photos = new();
+        readonly ReactiveCollection<PhotoModel> _photos = new();
     }
 }

@@ -2,7 +2,8 @@
     "name": "SepiaStock.Views",
     "rootNamespace": "SepiaStock.Views",
     "references": [
-        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:503da2660d9da3c4bbd76dc65936a32a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
