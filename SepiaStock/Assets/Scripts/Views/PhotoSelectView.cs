@@ -7,15 +7,25 @@ using SepiaStock.Unity.Presenters;
 using SepiaStock.Views;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>写真選択ビューのクラス</summary>
 public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
 {
     /// <summary>写真グリッド</summary>
     [SerializeField] GameObject _photoGrid;
-
     /// <summary>写真プレハブ</summary>
     [SerializeField] GameObject _photoPrefab;
+    /// <summary>写真のスケール</summary>
+    [SerializeField] Slider _photoScale;
+
+    /// <summary>写真のスケールを設定する</summary>
+    public float PhotoScale {
+        set {
+            _photoScale.value = value;
+            _photoGrid.GetComponent<GridLayoutGroup>().cellSize = new Vector2(100 * value, 100 * value);
+        }
+    }
 
     /// <summary>写真選択イベント</summary>
     public event Action<PhotoModel> OnSelectPhoto;
@@ -23,6 +33,8 @@ public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
     public event Action<PhotoModel> OnUnSelectPhoto;
     /// <summary>戻るイベント</summary>
     public event Action OnBack;
+    /// <summary>写真スケール変更イベント</summary>
+    public event Action<float> OnPhotoScaleChanged;
 
     /// <summary>写真追加</summary>
     public void AddPhoto(PhotoModel photo)
@@ -63,6 +75,11 @@ public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
         if (photoUnSelected != null) {
             photoUnSelected.Selected = false;
         }
+    }
+
+    void Awake()
+    {
+        _photoScale.onValueChanged.AddListener(scale => OnPhotoScaleChanged?.Invoke(scale));
     }
 
     /// <summary>写真プレゼンターリスト</summary>

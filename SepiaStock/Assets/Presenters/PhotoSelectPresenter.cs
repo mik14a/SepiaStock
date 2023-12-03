@@ -31,12 +31,19 @@ namespace SepiaStock.Unity.Presenters
         /// </summary>
         public void Initialize()
         {
-            _view.OnSelectPhoto += photo => _model.SelectionAdd(photo);
-            _view.OnUnSelectPhoto += photo => _model.SelectionRemove(photo);
+            _view.OnSelectPhoto += _model.SelectionAdd;
+            _view.OnUnSelectPhoto += _model.SelectionRemove;
+            _view.OnPhotoScaleChanged += ChangePhotoScale;
             _model.Photos.ObserveAdd().Subscribe(e => _view.AddPhoto(e.Value)).AddTo(_disposables);
             _model.Photos.ObserveRemove().Subscribe(e => _view.RemovePhoto(e.Value)).AddTo(_disposables);
             _model.SelectedPhotos.ObserveAdd().Subscribe(e => _view.AddSelectedPhoto(e.Value)).AddTo(_disposables);
             _model.SelectedPhotos.ObserveRemove().Subscribe(e => _view.RemoveSelectedPhoto(e.Value)).AddTo(_disposables);
+        }
+
+        void ChangePhotoScale(float scale)
+        {
+            _photoScale = scale;
+            _view.PhotoScale = _photoScale;
         }
 
         /// <summary>
@@ -59,5 +66,6 @@ namespace SepiaStock.Unity.Presenters
         readonly PhotoSelectScene _model;
         readonly IPhotoSelectView _view;
         readonly CompositeDisposable _disposables = new();
+        float _photoScale = 1f;
     }
 }
