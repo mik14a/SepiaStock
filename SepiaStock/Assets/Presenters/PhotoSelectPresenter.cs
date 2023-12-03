@@ -21,6 +21,7 @@ namespace SepiaStock.Unity.Presenters
         public void Initialize()
         {
             _model.Photos.ObserveAdd().Subscribe(e => _view.AddPhoto(e.Value)).AddTo(_disposables);
+            _model.Photos.ObserveRemove().Subscribe(e => _view.RemovePhoto(e.Value)).AddTo(_disposables);
         }
 
         public void Dispose()

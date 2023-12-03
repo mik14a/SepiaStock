@@ -26,6 +26,14 @@ public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
         presenter.Initialize();
         _photos.Add(presenter);
     }
+
+    public void RemovePhoto(PhotoModel photo)
+    {
+        var photoToRemove = _photos.FirstOrDefault(p => p.Compare(photo));
+        if (photoToRemove != null) {
+            _photos.Remove(photoToRemove);
+            photoToRemove.Destroy();
+            photoToRemove.Dispose();
         }
     }
 
