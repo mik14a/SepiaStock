@@ -9,12 +9,12 @@ using UniRx;
 namespace SepiaStock.Unity.Presenters
 {
     /// <summary>
-    /// 写真選択プレゼンタークラス
+    /// 写真選択プレゼンタークラスです。写真の選択とスケールの変更を制御します。
     /// </summary>
     public class PhotoSelectPresenter : IScenePresenter, IDisposable
     {
         /// <summary>
-        /// 写真選択プレゼンターのインスタンスを作成します。
+        /// 写真選択プレゼンターの新しいインスタンスを作成します。
         /// </summary>
         public static PhotoSelectPresenter CreateInstance(PhotoSelectScene model, IPhotoSelectView view)
         {
@@ -27,7 +27,7 @@ namespace SepiaStock.Unity.Presenters
         public event Action<string> OnNext;
 
         /// <summary>
-        /// 初期化処理
+        /// 初期化処理を行います。写真の追加、削除、選択、選択解除、スケール変更のイベントを設定します。
         /// </summary>
         public void Initialize()
         {
@@ -40,14 +40,25 @@ namespace SepiaStock.Unity.Presenters
             _model.SelectedPhotos.ObserveRemove().Subscribe(e => _view.RemoveSelectedPhoto(e.Value)).AddTo(_disposables);
         }
 
-        void ChangePhotoScale(float scale)
+        /// <summary>
+        /// 選択モードを変更します。
+        /// </summary>
+        public void ChangeSelectionMode(SelectionMode mode)
+        {
+            _selectionMode = mode;
+        }
+
+        /// <summary>
+        /// 写真のスケールを変更します。
+        /// </summary>
+        public void ChangePhotoScale(float scale)
         {
             _photoScale = scale;
             _view.PhotoScale = _photoScale;
         }
 
         /// <summary>
-        /// リソースの解放
+        /// リソースの解放を行います。
         /// </summary>
         public void Dispose()
         {
@@ -55,7 +66,7 @@ namespace SepiaStock.Unity.Presenters
         }
 
         /// <summary>
-        /// コンストラクタ
+        /// コンストラクタです。モデルとビューを設定します。
         /// </summary>
         PhotoSelectPresenter(PhotoSelectScene model, IPhotoSelectView view)
         {
@@ -66,6 +77,7 @@ namespace SepiaStock.Unity.Presenters
         readonly PhotoSelectScene _model;
         readonly IPhotoSelectView _view;
         readonly CompositeDisposable _disposables = new();
+        SelectionMode _selectionMode = SelectionMode.None;
         float _photoScale = 1f;
     }
 }

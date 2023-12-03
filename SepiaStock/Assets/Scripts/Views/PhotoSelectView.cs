@@ -27,6 +27,8 @@ public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
         }
     }
 
+    public SelectionMode SelectionMode { set => throw new NotImplementedException(); }
+
     /// <summary>写真選択イベント</summary>
     public event Action<PhotoModel> OnSelectPhoto;
     /// <summary>写真選択解除イベント</summary>
@@ -79,6 +81,7 @@ public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
 
     void Awake()
     {
+
         _photoScale.onValueChanged.AddListener(scale => OnPhotoScaleChanged?.Invoke(scale));
     }
 
