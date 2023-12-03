@@ -1,5 +1,7 @@
 using UniRx;
 
+using UnityEngine;
+
 namespace SepiaStock.Unity.ObservableModels
 {
     /// <summary>
@@ -10,26 +12,26 @@ namespace SepiaStock.Unity.ObservableModels
         /// <summary>
         /// 写真のパスを取得します。
         /// </summary>
-        public IReadOnlyReactiveProperty<string> Path => _path;
+        public IReadOnlyReactiveProperty<Texture2D> Texture => _texture;
 
         /// <summary>
         /// 新しいPhotoModelインスタンスを作成します。
         /// </summary>
-        /// <param name="path">写真のパス</param>
+        /// <param name="texture">テクスチャ</param>
         /// <returns>新しいPhotoModelインスタンス</returns>
-        public static PhotoModel CreateInstance(string path)
+        public static PhotoModel CreateInstance(Texture2D texture)
         {
-            return new PhotoModel(path);
+            return new PhotoModel(texture);
         }
 
         /// <summary>
         /// PhotoModelの新しいインスタンスを作成します。
         /// </summary>
-        /// <param name="path">写真のパス</param>
-        public PhotoModel(string path)
+        /// <param name="texture">テクスチャ</param>
+        public PhotoModel(Texture2D texture)
         {
-            _path.Value = path;
+            _texture.Value = texture;
         }
-        readonly ReactiveProperty<string> _path = new();
+        readonly ReactiveProperty<Texture2D> _texture = new();
     }
 }

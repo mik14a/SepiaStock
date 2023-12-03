@@ -1,13 +1,10 @@
 using System;
-using System.IO;
 
 using SepiaStock.Unity.ObservableModels;
 using SepiaStock.Unity.Presenters.Interfaces;
 using SepiaStock.Views;
 
 using UniRx;
-
-using UnityEngine;
 
 namespace SepiaStock.Unity.Presenters
 {
@@ -36,12 +33,7 @@ namespace SepiaStock.Unity.Presenters
         /// </summary>
         public void Initialize()
         {
-            if (File.Exists(_model.Path.Value)) {
-                var data = File.ReadAllBytes(_model.Path.Value);
-                var texture = new Texture2D(32, 32);
-                texture.LoadImage(data);
-                _view.Photo = texture;
-            }
+            _view.Photo = _model.Texture.Value;
             _view.OnSelect += () => OnSelect?.Invoke(_model);
             _view.OnUnSelect += () => OnUnSelect?.Invoke(_model);
         }

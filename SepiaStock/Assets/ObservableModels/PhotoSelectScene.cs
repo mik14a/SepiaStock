@@ -41,7 +41,9 @@ namespace SepiaStock.Unity.ObservableModels
             var files = Directory.EnumerateFiles(_config.PhotoFolderPath);
             foreach (var file in files) {
                 if (Path.GetExtension(file) is ".png" or ".jpg") {
-                    _photos.Add(PhotoModel.CreateInstance(file));
+                    var texture = new Texture2D(16, 16);
+                    texture.LoadImage(File.ReadAllBytes(file));
+                    _photos.Add(PhotoModel.CreateInstance(texture));
                     yield return null;
                 }
             }
