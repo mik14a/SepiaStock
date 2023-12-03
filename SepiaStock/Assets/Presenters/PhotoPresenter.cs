@@ -18,7 +18,11 @@ namespace SepiaStock.Unity.Presenters
             return new PhotoPresenter(model, view);
         }
 
-        public GameObject GameObject { get; set; }
+        public bool Selected {
+            set => _view.Selected = value;
+        }
+        public event Action<PhotoModel> OnSelect;
+        public event Action<PhotoModel> OnUnSelect;
 
         public void Initialize()
         {
@@ -28,6 +32,8 @@ namespace SepiaStock.Unity.Presenters
                 texture.LoadImage(data);
                 _view.Photo = texture;
             }
+            _view.OnSelect += () => OnSelect?.Invoke(_model);
+            _view.OnUnSelect += () => OnUnSelect?.Invoke(_model);
         }
 
         public void Destroy()

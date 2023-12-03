@@ -20,8 +20,12 @@ namespace SepiaStock.Unity.Presenters
 
         public void Initialize()
         {
+            _view.OnSelectPhoto += photo => _model.SelectionAdd(photo);
+            _view.OnUnSelectPhoto += photo => _model.SelectionRemove(photo);
             _model.Photos.ObserveAdd().Subscribe(e => _view.AddPhoto(e.Value)).AddTo(_disposables);
             _model.Photos.ObserveRemove().Subscribe(e => _view.RemovePhoto(e.Value)).AddTo(_disposables);
+            _model.SelectedPhotos.ObserveAdd().Subscribe(e => _view.AddSelectedPhoto(e.Value)).AddTo(_disposables);
+            _model.SelectedPhotos.ObserveRemove().Subscribe(e => _view.RemoveSelectedPhoto(e.Value)).AddTo(_disposables);
         }
 
         public void Dispose()
