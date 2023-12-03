@@ -8,21 +8,17 @@ using UnityEngine.UI;
 /// <summary>写真ビューのクラス</summary>
 class PhotoView : MonoBehaviour, IPhotoView
 {
-    [SerializeField]
     /// <summary>パネル</summary>
-    Button _panel;
+    [SerializeField] Button _panel;
 
-    [SerializeField]
     /// <summary>通常色</summary>
-    Color _normalColor;
+    [SerializeField] Color _normalColor;
 
-    [SerializeField]
     /// <summary>選択色</summary>
-    Color _selectedColor;
+    [SerializeField] Color _selectedColor;
 
-    [SerializeField]
     /// <summary>写真</summary>
-    Image _photo;
+    [SerializeField] Image _photo;
 
     /// <summary>選択状態</summary>
     public bool Selected {

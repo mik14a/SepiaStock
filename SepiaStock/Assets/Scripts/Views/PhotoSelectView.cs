@@ -11,13 +11,11 @@ using UnityEngine;
 /// <summary>写真選択ビューのクラス</summary>
 public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
 {
-    [SerializeField]
     /// <summary>写真グリッド</summary>
-    GameObject _photoGrid;
+    [SerializeField] GameObject _photoGrid;
 
-    [SerializeField]
     /// <summary>写真プレハブ</summary>
-    GameObject _photoPrefab;
+    [SerializeField] GameObject _photoPrefab;
 
     /// <summary>写真選択イベント</summary>
     public event Action<PhotoModel> OnSelectPhoto;
