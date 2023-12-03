@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.IO;
+using System.Linq;
 
 using SepiaStock.Models;
 
@@ -59,6 +61,15 @@ namespace SepiaStock.Unity.ObservableModels
         public void SelectionRemove(PhotoModel photo)
         {
             _selectedPhotos.Remove(photo);
+        }
+
+        /// <summary>
+        /// 選択した写真を削除します。
+        /// </summary>
+        public void DeleteSelection()
+        {
+            _selectedPhotos.ToList().ForEach(photo => _photos.Remove(photo));
+            _selectedPhotos.Clear();
         }
 
         /// <summary>

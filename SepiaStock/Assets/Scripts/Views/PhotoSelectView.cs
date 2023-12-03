@@ -43,8 +43,8 @@ public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
         var view = instance.GetComponent<PhotoView>();
         var presenter = PhotoPresenter.CreateInstance(photo, view);
         presenter.Initialize();
-        presenter.OnSelect += (photo) => OnSelectPhoto?.Invoke(photo);
-        presenter.OnUnSelect += (photo) => OnUnSelectPhoto?.Invoke(photo);
+        presenter.OnSelect += photo => OnSelectPhoto?.Invoke(photo);
+        presenter.OnUnSelect += photo => OnUnSelectPhoto?.Invoke(photo);
         _photos.Add(presenter);
     }
 
