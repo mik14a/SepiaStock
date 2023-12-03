@@ -8,16 +8,27 @@ using UniRx;
 
 namespace SepiaStock.Unity.Presenters
 {
+    /// <summary>
+    /// 写真選択プレゼンタークラス
+    /// </summary>
     public class PhotoSelectPresenter : IScenePresenter, IDisposable
     {
+        /// <summary>
+        /// 写真選択プレゼンターのインスタンスを作成します。
+        /// </summary>
         public static PhotoSelectPresenter CreateInstance(PhotoSelectScene model, IPhotoSelectView view)
         {
             return new PhotoSelectPresenter(model, view);
         }
 
+        /// <summary>戻るイベント</summary>
         public event Action OnBack;
+        /// <summary>次へイベント</summary>
         public event Action<string> OnNext;
 
+        /// <summary>
+        /// 初期化処理
+        /// </summary>
         public void Initialize()
         {
             _view.OnSelectPhoto += photo => _model.SelectionAdd(photo);
@@ -28,11 +39,17 @@ namespace SepiaStock.Unity.Presenters
             _model.SelectedPhotos.ObserveRemove().Subscribe(e => _view.RemoveSelectedPhoto(e.Value)).AddTo(_disposables);
         }
 
+        /// <summary>
+        /// リソースの解放
+        /// </summary>
         public void Dispose()
         {
             _disposables.Dispose();
         }
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         PhotoSelectPresenter(PhotoSelectScene model, IPhotoSelectView view)
         {
             _model = model;

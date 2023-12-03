@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 
 using SepiaStock.Models;
@@ -9,8 +8,14 @@ using UnityEngine;
 
 namespace SepiaStock.Unity.ObservableModels
 {
+    /// <summary>
+    /// ConfigModelクラスは、設定のモデルを制御します。
+    /// </summary>
     public class ConfigModel
     {
+        /// <summary>
+        /// ConfigModelの新しいインスタンスを作成します。
+        /// </summary>
         public static ConfigModel CreateInstance()
         {
             var configPath = Path.Combine(Application.persistentDataPath, "Config.json");
@@ -20,10 +25,22 @@ namespace SepiaStock.Unity.ObservableModels
             return new ConfigModel(config);
         }
 
+        /// <summary>
+        /// 写真のフォルダパスを取得します。
+        /// </summary>
         public IReadOnlyReactiveProperty<string> PhotoFolderPath => _photoFolderPath;
+        /// <summary>
+        /// アルバムのフォルダパスを取得します。
+        /// </summary>
         public IReadOnlyReactiveProperty<string> AlbumFolderPath => _albumFolderPath;
+        /// <summary>
+        /// 最終的なフォルダパスを取得します。
+        /// </summary>
         public IReadOnlyReactiveProperty<string> FinalFolderPath => _finalFolderPath;
 
+        /// <summary>
+        /// 設定を保存します。
+        /// </summary>
         public void Save()
         {
             _config.PhotoFolderPath = _photoFolderPath.Value;
@@ -34,31 +51,43 @@ namespace SepiaStock.Unity.ObservableModels
             File.WriteAllText(configPath, json);
         }
 
+        /// <summary>
+        /// 写真のフォルダパスを変更します。
+        /// </summary>
         public void ChangePhotoFolderPath(string path)
         {
             _photoFolderPath.Value = path;
         }
 
+        /// <summary>
+        /// アルバムのフォルダパスを変更します。
+        /// </summary>
         public void ChangeAlbumFolderPath(string path)
         {
             _albumFolderPath.Value = path;
         }
 
+        /// <summary>
+        /// 最終的なフォルダパスを変更します。
+        /// </summary>
         public void ChangeFinalFolderPath(string path)
         {
             _finalFolderPath.Value = path;
         }
 
+        /// <summary>
+        /// ConfigModelの新しいインスタンスを作成します。
+        /// </summary>
         ConfigModel(Config config)
         {
             _config = config;
-            _photoFolderPath = new ReactiveProperty<string>(_config.PhotoFolderPath);
-            _albumFolderPath = new ReactiveProperty<string>(_config.AlbumFolderPath);
-            _finalFolderPath = new ReactiveProperty<string>(_config.FinalFolderPath);
+            _photoFolderPath.Value = _config.PhotoFolderPath;
+            _albumFolderPath.Value = _config.AlbumFolderPath;
+            _finalFolderPath.Value = _config.FinalFolderPath;
         }
         readonly Config _config;
-        readonly ReactiveProperty<string> _photoFolderPath;
-        readonly ReactiveProperty<string> _albumFolderPath;
-        readonly ReactiveProperty<string> _finalFolderPath;
+        readonly ReactiveProperty<string> _photoFolderPath = new();
+        readonly ReactiveProperty<string> _albumFolderPath = new();
+        readonly ReactiveProperty<string> _finalFolderPath = new();
     }
 }

@@ -8,18 +8,25 @@ using SepiaStock.Views;
 
 using UnityEngine;
 
+/// <summary>写真選択ビューのクラス</summary>
 public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
 {
     [SerializeField]
+    /// <summary>写真グリッド</summary>
     GameObject _photoGrid;
 
     [SerializeField]
+    /// <summary>写真プレハブ</summary>
     GameObject _photoPrefab;
 
+    /// <summary>写真選択イベント</summary>
     public event Action<PhotoModel> OnSelectPhoto;
+    /// <summary>写真選択解除イベント</summary>
     public event Action<PhotoModel> OnUnSelectPhoto;
+    /// <summary>戻るイベント</summary>
     public event Action OnBack;
 
+    /// <summary>写真追加</summary>
     public void AddPhoto(PhotoModel photo)
     {
         var instance = Instantiate(_photoPrefab, _photoGrid.transform, false);
@@ -31,6 +38,7 @@ public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
         _photos.Add(presenter);
     }
 
+    /// <summary>写真削除</summary>
     public void RemovePhoto(PhotoModel photo)
     {
         var photoToRemove = _photos.FirstOrDefault(p => p.Compare(photo));
@@ -41,6 +49,7 @@ public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
         }
     }
 
+    /// <summary>選択写真追加</summary>
     public void AddSelectedPhoto(PhotoModel photo)
     {
         var photoSelected = _photos.FirstOrDefault(p => p.Compare(photo));
@@ -49,6 +58,7 @@ public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
         }
     }
 
+    /// <summary>選択写真削除</summary>
     public void RemoveSelectedPhoto(PhotoModel photo)
     {
         var photoUnSelected = _photos.FirstOrDefault(p => p.Compare(photo));
@@ -57,5 +67,6 @@ public class PhotoSelectView : MonoBehaviour, IPhotoSelectView
         }
     }
 
+    /// <summary>写真プレゼンターリスト</summary>
     readonly List<PhotoPresenter> _photos = new();
 }

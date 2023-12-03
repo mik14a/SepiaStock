@@ -8,16 +8,27 @@ using UniRx;
 
 namespace SepiaStock.Unity.Presenters
 {
+    /// <summary>
+    /// ConfigPresenterクラスは、設定のプレゼンターを制御します。
+    /// </summary>
     public class ConfigPresenter : IScenePresenter, IDisposable
     {
+        /// <summary>戻るイベント</summary>
         public event Action OnBack;
+        /// <summary>次へイベント</summary>
         public event Action<string> OnNext;
 
+        /// <summary>
+        /// ConfigPresenterの新しいインスタンスを作成します。
+        /// </summary>
         public static ConfigPresenter CreateInstance(ConfigModel model, IConfigView view)
         {
             return new ConfigPresenter(model, view);
         }
 
+        /// <summary>
+        /// プレゼンターを初期化します。
+        /// </summary>
         public void Initialize()
         {
             _model.PhotoFolderPath.Subscribe(p => _view.PhotoFolderPath = p).AddTo(_disposables);
@@ -29,6 +40,9 @@ namespace SepiaStock.Unity.Presenters
             _view.OnOk += Ok;
             _view.OnCancel += Cancel;
         }
+        /// <summary>
+        /// プレゼンターを破棄します。
+        /// </summary>
         public void Dispose()
         {
             _disposables.Dispose();

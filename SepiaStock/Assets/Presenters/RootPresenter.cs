@@ -16,11 +16,13 @@ namespace SepiaStock.Unity.Presenters
         /// <summary>設定イベント</summary>
         public event Action OnConfig;
 
+        /// <summary>RootPresenterのインスタンスを作成します。</summary>
         public static RootPresenter CreateInstance(IRootView view)
         {
             return new RootPresenter(view);
         }
 
+        /// <summary>初期化処理</summary>
         public void Initialize()
         {
             _view.OnPhotoSelect += PhotoSelect;
@@ -28,21 +30,25 @@ namespace SepiaStock.Unity.Presenters
             _view.OnConfig += Config;
         }
 
+        /// <summary>写真選択処理</summary>
         void PhotoSelect()
         {
             OnPhotoSelect?.Invoke();
         }
 
+        /// <summary>アルバム作成処理</summary>
         void CreateAlbum()
         {
             OnCreateAlbum?.Invoke();
         }
 
+        /// <summary>設定処理</summary>
         void Config()
         {
             OnConfig?.Invoke();
         }
 
+        /// <summary>RootPresenterのコンストラクタ</summary>
         public RootPresenter(IRootView view)
         {
             _view = view;
