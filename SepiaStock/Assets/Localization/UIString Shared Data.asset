@@ -47,6 +47,10 @@ MonoBehaviour:
     m_Key: Config
     m_Metadata:
       m_Items: []
+  - m_Id: 135303960076288
+    m_Key: Locale
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

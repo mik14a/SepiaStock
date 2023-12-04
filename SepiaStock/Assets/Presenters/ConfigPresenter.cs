@@ -34,12 +34,15 @@ namespace SepiaStock.Unity.Presenters
             _model.PhotoFolderPath.Subscribe(p => _view.PhotoFolderPath = p).AddTo(_disposables);
             _model.AlbumFolderPath.Subscribe(p => _view.AlbumFolderPath = p).AddTo(_disposables);
             _model.FinalFolderPath.Subscribe(p => _view.FinalFolderPath = p).AddTo(_disposables);
+            _model.Locale.Subscribe(l => _view.Locale = l).AddTo(_disposables);
             _view.OnPhotoFolderPathChanged += p => _model.ChangePhotoFolderPath(p);
             _view.OnAlbumFolderPathChanged += p => _model.ChangeAlbumFolderPath(p);
             _view.OnFinalFolderPathChanged += p => _model.ChangeFinalFolderPath(p);
+            _view.OnLocaleChanged += l => _model.ChangeLocale(l);
             _view.OnOk += Ok;
             _view.OnCancel += Cancel;
         }
+
         /// <summary>
         /// プレゼンターを破棄します。
         /// </summary>
