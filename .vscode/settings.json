@@ -21,6 +21,7 @@
         "nunit",
         "Occluder",
         "particlesystem",
+        "PlayerPrefs",
         "Raycast",
         "screencapture",
         "Skybox",
