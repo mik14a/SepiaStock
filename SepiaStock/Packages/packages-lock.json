@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.mik14a.hueshifter": {
+      "version": "https://github.com/mik14a/HueShifter.git?path=Assets/Plugins/HueShifter",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "147e2191aaa9755db8ea6e9092e95ae7d341afec"
+    },
     "com.unity.addressables": {
       "version": "1.21.12",
       "depth": 1,
